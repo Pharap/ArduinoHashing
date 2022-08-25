@@ -31,8 +31,8 @@ namespace Hashing
 		{
 			using hash_type = typename Hash::hash_type;
 
-			EEPROMClass::put(address, Hash::hash(object));
-			EEPROMClass::put(address + sizeof(hash_type), object);
+			::EEPROM.put(address, Hash::hash(object));
+			::EEPROM.put(address + sizeof(hash_type), object);
 		}
 
 		template<typename Hash, typename Type>
@@ -42,8 +42,8 @@ namespace Hashing
 
 			hash_type storedHash;
 			
-			EEPROMClass::get(address, storedHash);
-			EEPROMClass::get(address + sizeof(storedHash), object);
+			::EEPROM.get(address, storedHash);
+			::EEPROM.get(address + sizeof(storedHash), object);
 
 			return (storedHash == Hash::hash(object));
 		}
@@ -57,8 +57,8 @@ namespace Hashing
 		{
 			using hash_type = decltype(hash(object));
 
-			EEPROMClass::put(address, hash(object));
-			EEPROMClass::put(address + sizeof(hash_type), object);
+			::EEPROM.put(address, hash(object));
+			::EEPROM.put(address + sizeof(hash_type), object);
 		}
 
 		template<typename Hash, typename Type>
@@ -68,8 +68,8 @@ namespace Hashing
 
 			hash_type storedHash;
 			
-			EEPROMClass::get(address, storedHash);
-			EEPROMClass::get(address + sizeof(storedHash), object);
+			::EEPROM.get(address, storedHash);
+			::EEPROM.get(address + sizeof(storedHash), object);
 
 			return (storedHash == hash(object));
 		}
