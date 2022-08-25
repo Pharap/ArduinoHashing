@@ -27,7 +27,7 @@ namespace Hashing
 		//
 
 		template<typename Hash, typename Type>
-		static void putWithHash(int address, Type & object)
+		static void putWithHash(int address, const Type & object)
 		{
 			using hash_type = typename Hash::hash_type;
 
@@ -53,7 +53,7 @@ namespace Hashing
 		//
 
 		template<typename Hash, typename Type>
-		static void putWithHash(int address, Type & object, Hash hash)
+		static void putWithHash(int address, const Type & object, Hash hash)
 		{
 			using hash_type = decltype(hash(object));
 
